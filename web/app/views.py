@@ -4,10 +4,9 @@ from django.shortcuts import redirect, render
 
 from app.models import *
 
-from .creators import universe, homeworld
 
 
-from .forms import HomeSystemForm, SignUpForm, QueryForm
+from .forms import SignUpForm, QueryForm
 
 
 # managing the connection (sync)
