@@ -2,8 +2,6 @@
 
 A Gremlin Graph database driven Dajngo App.  Useful as a template for other applications that use Django and Graph Databases. 
 
-![Alt text](/docs/img/solar_system.png?raw=true "solar system")
-
 * Django Web Server
 * Azure Cosmos DB (Gremlin)
 * D3.js for visualization
