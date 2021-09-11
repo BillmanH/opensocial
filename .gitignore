@@ -1,6 +1,8 @@
 # Configuration and keys
 configure.yaml
 
+# Data files
+data/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
