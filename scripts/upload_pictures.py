@@ -1,6 +1,7 @@
 #%%
 import pandas as pd
 import numpy as np
+import re
 import yaml
 from azure.storage.blob import BlobClient
 
@@ -17,13 +18,18 @@ def get_blob(name):
     )
     return blob
 
+def clean_string(s):
+    s2 = str(s.replace('\\','+'))
+    s2 = re.sub(r'\W+', '', s2)
+    return s2
+
 def clean_tags(pic):
     acceptable_keys = [k for k in list(pic.keys()) if k not in ["Unnamed: 0","fullpath","isdir","size"]]
-    clean_pic = {k: str(pic[k].replace('\\','+')) for k in acceptable_keys}
+    clean_pic = {k: clean_string(pic[k]) for k in acceptable_keys}
     return clean_pic
 
 
-df = pd.read_csv("../data/social_files.csv")
+df = pd.read_csv("../data/files.csv")
 df = df[df["extension"].isin(acceptable_image_types)].dropna()
 pictures = df.to_dict(orient="records")
 print(f'uploading {len(pictures)} documents to {params["container_name"]}')
@@ -32,7 +38,7 @@ unable_to_upload = []
 for i, pic in enumerate(pictures):
     if i % 100 == 0:
         print(np.round((i / len(pictures) * 100), decimals=4), "% completed")
-    get_blob(pic.get("item")).upload_blob(
+    get_blob(clean_string(pic.get("item"))).upload_blob(
         open(pic.get("fullpath"), "rb"),
         tags=clean_tags(pic),
         overwrite=params["overwrite_blob"],
