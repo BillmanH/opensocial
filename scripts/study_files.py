@@ -8,7 +8,7 @@ import numpy as np
 pd.options.mode.chained_assignment = None
 
 # %%
-base_path = 'D:\FamilyPhotos'
+base_path = r'D:\facebookdata\facebook-billharding908'
 
 dirs = os.listdir(base_path)
 all_files = pd.DataFrame()
@@ -107,6 +107,6 @@ df2 = traverse_folders(folders, base_path, df)
 
 
 try:
-    df2.to_csv("../data/files.csv")
+    df2.to_csv("../data/social_files.csv")
 except:
-    df2.to_csv("files.csv")
+    df2.to_csv("social_files.csv")

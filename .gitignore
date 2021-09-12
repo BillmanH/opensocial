@@ -1,5 +1,6 @@
 # Configuration and keys
 configure.yaml
+blob_keys.yaml
 
 # Data files
 data/*
@@ -140,3 +141,4 @@ dmypy.json
 # Excel files
 data/~$*.xlsx
 data/examplesystem.json
+
