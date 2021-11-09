@@ -2,14 +2,15 @@
 
 A Gremlin Graph database driven Dajngo App.  Useful as a template for other applications that use Django and Graph Databases. 
 
-* Django Web Server
+You will need the following: 
+* Django Web Server (a vm or web app service)
 * Azure Cosmos DB (Gremlin)
-* D3.js for visualization
+* Azure SQL Server
 
 ## Getting Started.
 
-### Building the environment
-I'm using anaconda so you should be able to build the environemnt in any system with: 
+### Building the local testing environment
+You can run the application on your local machine without cloud resources. I'm using anaconda so you should be able to build the environemnt in any system with: 
 ```
 conda env create --file=environment.yaml
 ``` 
@@ -22,9 +23,18 @@ conda env update --name exoplanets --file=environment.yaml --prune
 To access the cosmos DB, you'll need to setup the environment variables. 
 ```
 conda env config vars set endpoint=<copy paste from azure portal>
-conda env config vars set dbusername=<copy paste from azure portal>
-conda env config vars set dbkey=<copy paste from azure portal>
 ```
+you'll need to add the variables one at a time. I don't have a script for this but the format is simple. 
+
+These are the variables used: 
+| Syntax | Description |
+| ----------- | ----------- |
+| endpoint | web endpoint of your gremlin graph |
+| dbusername | graph login username |
+| dbkey | copy paste from azure portal |
+| abspath | absolute path of your project (for resolving relative path loading issues) |
+| subscription | azure subscription id (for building resources) |
+
 
 You can confirm the environments are there with: 
 ```

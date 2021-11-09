@@ -3,7 +3,7 @@ configure.yaml
 blob_keys.yaml
 
 # Data files
-data/*
+data/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
