@@ -1,6 +1,10 @@
 # Configuration and keys
 configure.yaml
 blob_keys.yaml
+*env-vars.json
+
+# arm template params
+*parameters.json
 
 # Data files
 data/*.csv
